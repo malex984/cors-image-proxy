@@ -21,7 +21,7 @@ httpProxy.createServer(function (req, res, proxy) {
    new_req = url.parse("http://" + url_path); // NOTE: main limitation!!!
    processRequest(req, res, proxy, new_req);
   }
-}).listen(8000);
+}).listen(9999);
 
 http.createServer(function (req, res) { 
   res.writeHead(200, { 'Content-Type': 'text/xml' }); res.write('<?xml version="1.0"?>\n<!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">\n<cross-domain-policy>\n<allow-access-from domain="*" />\n</cross-domain-policy>\n');  res.end();

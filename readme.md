@@ -15,7 +15,7 @@ to install dependencies
 `forever proxy.js` in case you wanna use [forever](https://github.com/nodejitsu/forever)
 ###### Request Format:  
 
-`http://proxy:8000/[image_url]`
+`http://proxy:9999/[image_url]`
 
 
 ###### Added Response Headers:  
