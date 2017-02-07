@@ -51,23 +51,23 @@ function originIsAllowed(origin) {
   return true;
 }
 
-wsServer.on('request', function(request) {
+wsServer.on('request', function(request) { //    console.log(request);
     if (!originIsAllowed(request.origin)) {
       // Make sure we only accept requests from an allowed origin
       request.reject();
       console.log((new Date()) + ' WS Connection from origin ' + request.origin + ' rejected.');
       return;
-    }
+    };
 
-    var connection = request.accept('echo-protocol', request.origin);
-    console.log((new Date()) + ' WS Connection accepted.');
+    var connection = request.accept(); // 'echo-protocol', request.origin
+
+    console.log((new Date()) + ' WS Connection got accepted, origin: ' + request.origin);
+
     connection.on('message', function(message) {
-        if (message.type === 'utf8') {
-//            console.log('Received Message: ' + message.utf8Data);
+        if (message.type === 'utf8') { //            console.log('Received Message: ' + message.utf8Data);
             connection.sendUTF(message.utf8Data);
         }
-        else if (message.type === 'binary') {
-//            console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');
+        else if (message.type === 'binary') { //            console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');
             connection.sendBytes(message.binaryData);
         }
     });
