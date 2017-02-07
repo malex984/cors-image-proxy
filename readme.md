@@ -21,3 +21,7 @@ to install dependencies
 ###### Added Response Headers:  
 Access-Control-Allow-Origin: *  
 Access-Control-Allow-Credentials: true  
+
+
+
+#### Added WebSocket Echo on port 7070!
